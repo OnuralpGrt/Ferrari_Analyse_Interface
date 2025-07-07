@@ -525,41 +525,6 @@ Papa.parse('Analyse/ferrari_en_cok_puan_pilotlar.csv', {
     }
 });
 
-// PİST PERFORMANS ANALİZİ (En Çok Kazanılan 10 Pist)
-Papa.parse('Analyse/ferrari_en_cok_kazanilan_pistler.csv', {
-    download: true,
-    header: true,
-    complete: function(results) {
-        const data = results.data;
-        const pistler = data.map(row => row['name_circuit']);
-        const galibiyet = data.map(row => Number(row['Galibiyet']));
-        const ctx = document.getElementById('ferrariPistPerformansChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: pistler,
-                datasets: [
-                    {
-                        label: 'Galibiyet',
-                        data: galibiyet,
-                        backgroundColor: 'rgba(255,0,0,0.7)'
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { labels: { color: '#fff' } },
-                    title: { display: true, text: 'En Çok Kazanılan 10 Pist' }
-                },
-                scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Galibiyet' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
-                }
-            }
-        });
-    }
-});
-
 // YILLIK PERFORMANS ANALİZİ (Yıllara Göre Podyum)
 Papa.parse('Analyse/ferrari_yillik_ozet.csv', {
     download: true,
@@ -646,41 +611,6 @@ Papa.parse('Analyse/ferrari_en_basarili_sezonlar.csv', {
                         ticks: { color: '#fff' },
                         grid: { color: 'rgba(255,255,255,0.1)' }
                     }
-                }
-            }
-        });
-    }
-});
-
-// KARŞILAŞTIRMALI ANALİZ (En Çok Puan Alan 10 Takım)
-Papa.parse('Analyse/ferrari_karsilastirmali_analiz.csv', {
-    download: true,
-    header: true,
-    complete: function(results) {
-        const data = results.data;
-        const takimlar = data.map(row => row['constructor_name']);
-        const puan = data.map(row => Number(row['Puan']));
-        const ctx = document.getElementById('ferrariKarsilastirmaliChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: takimlar,
-                datasets: [
-                    {
-                        label: 'Puan',
-                        data: puan,
-                        backgroundColor: 'rgba(255,0,0,0.7)'
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { labels: { color: '#fff' } },
-                    title: { display: true, text: 'En Çok Puan Alan 10 Takım', color: '#fff' }
-                },
-                scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Puan' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                 }
             }
         });
