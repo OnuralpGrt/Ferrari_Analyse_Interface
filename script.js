@@ -743,7 +743,7 @@ Papa.parse('Analyse/ferrari_en_cok_podyum_pilotlar.csv', {
 });
 
 // EN ÇOK PODYUM YAPILAN 10 PİST
-Papa.parse('Analyse/ferrari_en_cok_podyum_pistler.csv', {
+Papa.parse('Analyse/ferrari_en_basarili_pistler.csv', {
     download: true,
     header: true,
     complete: function(results) {
@@ -779,7 +779,7 @@ Papa.parse('Analyse/ferrari_en_cok_podyum_pistler.csv', {
 });
 
 // EN ÇOK KAZANAN 10 FERRARI PİLOTU
-Papa.parse('Analyse/ferrari_en_cok_kazanan_pilotlar.csv', {
+Papa.parse('Analyse/ferrari_en_basarili_pilotlar.csv', {
     download: true,
     header: true,
     complete: function(results) {
