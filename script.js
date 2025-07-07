@@ -848,4 +848,40 @@ Papa.parse('Analyse/ferrari_en_iyi_ortalama_pozisyon_sezonlar.csv', {
             }
         });
     }
+});
+
+// EN ÇOK PUAN TOPLANAN 10 SEZON
+Papa.parse('Analyse/ferrari_en_cok_puan_sezonlar.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const years = data.map(row => row['year']);
+        const puan = data.map(row => Number(row['Puan']));
+        const ctx = document.getElementById('ferrariEnCokPuanSezonlarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: years,
+                datasets: [
+                    {
+                        label: 'Puan',
+                        data: puan,
+                        backgroundColor: 'rgba(255,0,0,0.7)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'En Çok Puan Toplanan 10 Sezon', color: '#fff' }
+                },
+                scales: {
+                    x: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { beginAtZero: true, title: { display: true, text: 'Puan', color: '#fff' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+    }
 }); 
