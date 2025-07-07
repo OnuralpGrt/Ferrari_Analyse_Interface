@@ -734,7 +734,16 @@ Papa.parse('Analyse/ferrari_en_cok_podyum_pilotlar.csv', {
                     title: { display: true, text: 'En Çok Podyum Yapan 10 Ferrari Pilotu', color: '#fff' }
                 },
                 scales: {
-                    x: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    x: {
+                        ticks: {
+                            color: '#222',
+                            font: { size: 14 },
+                            display: true,
+                            maxRotation: 30,
+                            minRotation: 0
+                        },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    },
                     y: { beginAtZero: true, title: { display: true, text: 'Podyum', color: '#fff' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                 }
             }
@@ -770,7 +779,16 @@ Papa.parse('Analyse/ferrari_en_basarili_pistler.csv', {
                     title: { display: true, text: 'En Çok Podyum Yapılan 10 Pist', color: '#fff' }
                 },
                 scales: {
-                    x: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    x: {
+                        ticks: {
+                            color: '#222',
+                            font: { size: 14 },
+                            display: true,
+                            maxRotation: 30,
+                            minRotation: 0
+                        },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    },
                     y: { beginAtZero: true, title: { display: true, text: 'Podyum', color: '#fff' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                 }
             }
@@ -806,7 +824,16 @@ Papa.parse('Analyse/ferrari_en_basarili_pilotlar.csv', {
                     title: { display: true, text: 'En Çok Kazanan 10 Ferrari Pilotu', color: '#fff' }
                 },
                 scales: {
-                    x: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    x: {
+                        ticks: {
+                            color: '#222',
+                            font: { size: 14 },
+                            display: true,
+                            maxRotation: 30,
+                            minRotation: 0
+                        },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    },
                     y: { beginAtZero: true, title: { display: true, text: 'Galibiyet', color: '#fff' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                 }
             }
