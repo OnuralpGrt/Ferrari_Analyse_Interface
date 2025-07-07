@@ -774,4 +774,148 @@ Papa.parse('Analyse/ferrari_yillik_ozet.csv', {
             }
         });
     }
+});
+
+// EN ÇOK PODYUM YAPAN 10 FERRARI PİLOTU
+Papa.parse('Analyse/ferrari_en_cok_podyum_pilotlar.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const pilots = data.map(row => row['driver_name']);
+        const podyum = data.map(row => Number(row['Podyum']));
+        const ctx = document.getElementById('ferrariEnCokPodyumPilotlarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: pilots,
+                datasets: [
+                    {
+                        label: 'Podyum',
+                        data: podyum,
+                        backgroundColor: 'rgba(255,0,0,0.7)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'En Çok Podyum Yapan 10 Ferrari Pilotu', color: '#fff' }
+                },
+                scales: {
+                    x: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { beginAtZero: true, title: { display: true, text: 'Podyum', color: '#fff' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+    }
+});
+
+// EN ÇOK PODYUM YAPILAN 10 PİST
+Papa.parse('Analyse/ferrari_en_cok_podyum_pistler.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const pistler = data.map(row => row['name_circuit']);
+        const podyum = data.map(row => Number(row['Podyum']));
+        const ctx = document.getElementById('ferrariEnCokPodyumPistlerChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: pistler,
+                datasets: [
+                    {
+                        label: 'Podyum',
+                        data: podyum,
+                        backgroundColor: 'rgba(255,0,0,0.7)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'En Çok Podyum Yapılan 10 Pist', color: '#fff' }
+                },
+                scales: {
+                    x: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { beginAtZero: true, title: { display: true, text: 'Podyum', color: '#fff' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+    }
+});
+
+// EN ÇOK KAZANAN 10 FERRARI PİLOTU
+Papa.parse('Analyse/ferrari_en_cok_kazanan_pilotlar.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const pilots = data.map(row => row['driver_name']);
+        const galibiyet = data.map(row => Number(row['Galibiyet']));
+        const ctx = document.getElementById('ferrariEnCokKazananPilotlarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: pilots,
+                datasets: [
+                    {
+                        label: 'Galibiyet',
+                        data: galibiyet,
+                        backgroundColor: 'rgba(255,0,0,0.7)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'En Çok Kazanan 10 Ferrari Pilotu', color: '#fff' }
+                },
+                scales: {
+                    x: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { beginAtZero: true, title: { display: true, text: 'Galibiyet', color: '#fff' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+    }
+});
+
+// EN İYİ ORTALAMA POZİSYONLU 10 SEZON
+Papa.parse('Analyse/ferrari_en_iyi_ortalama_pozisyon_sezonlar.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const years = data.map(row => row['year']);
+        const ortPozisyon = data.map(row => Number(row['Ortalama_Pozisyon']));
+        const ctx = document.getElementById('ferrariEnIyiOrtalamaPozisyonSezonlarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: years,
+                datasets: [
+                    {
+                        label: 'Ortalama Pozisyon',
+                        data: ortPozisyon,
+                        backgroundColor: 'rgba(255,0,0,0.7)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'En İyi Ortalama Pozisyonlu 10 Sezon', color: '#fff' }
+                },
+                scales: {
+                    x: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { beginAtZero: true, title: { display: true, text: 'Ortalama Pozisyon', color: '#fff' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+    }
 }); 
