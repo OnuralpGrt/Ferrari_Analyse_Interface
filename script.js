@@ -905,7 +905,16 @@ Papa.parse('Analyse/ferrari_en_cok_puan_sezonlar.csv', {
                     title: { display: true, text: 'En Çok Puan Toplanan 10 Sezon', color: '#fff' }
                 },
                 scales: {
-                    x: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    x: {
+                        ticks: {
+                            color: '#222',
+                            font: { size: 14 },
+                            display: true,
+                            maxRotation: 30,
+                            minRotation: 0
+                        },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    },
                     y: { beginAtZero: true, title: { display: true, text: 'Puan', color: '#fff' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                 }
             }
