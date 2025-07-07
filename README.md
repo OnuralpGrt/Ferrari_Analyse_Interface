@@ -1,4 +1,4 @@
-# 🏎️ Scuderia Ferrari
+# 🏎️ Scuderia Ferrari - Resmi Web Sitesi
 
 Scuderia Ferrari takımı temalı modern, koyu tonlarda tasarlanmış etkileyici bir web sitesi.
 

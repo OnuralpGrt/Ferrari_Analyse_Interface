@@ -420,4 +420,341 @@ window.addEventListener('load', function() {
     if (loadedImages === images.length) {
         document.body.classList.add('loaded');
     }
+});
+
+// GENEL PERFORMANS ANALİZİ (Yıllara Göre Galibiyet ve Puan)
+Papa.parse('Analyse/ferrari_yillik_ozet.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const years = data.map(row => row['year']);
+        const galibiyet = data.map(row => Number(row['Galibiyet']));
+        const puan = data.map(row => Number(row['Puan']));
+        const ctx = document.getElementById('ferrariGenelPerformansChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: years,
+                datasets: [
+                    {
+                        label: 'Galibiyet',
+                        data: galibiyet,
+                        backgroundColor: 'rgba(255,0,0,0.7)'
+                    },
+                    {
+                        label: 'Puan',
+                        data: puan,
+                        type: 'line',
+                        borderColor: 'rgba(200,0,0,1)',
+                        backgroundColor: 'rgba(200,0,0,0.1)',
+                        yAxisID: 'y1',
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                interaction: { mode: 'index', intersect: false },
+                stacked: false,
+                plugins: {
+                    legend: { display: true },
+                    title: { display: true, text: 'Yıllara Göre Galibiyet ve Puan' }
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Galibiyet' } },
+                    y1: {
+                        beginAtZero: true,
+                        position: 'right',
+                        grid: { drawOnChartArea: false },
+                        title: { display: true, text: 'Puan' }
+                    }
+                }
+            }
+        });
+    }
+});
+
+// PİLOT PERFORMANS ANALİZİ (En Çok Puan Alan 10 Pilot)
+Papa.parse('Analyse/ferrari_en_cok_puan_pilotlar.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const pilots = data.map(row => row['driver_name']);
+        const puan = data.map(row => Number(row['Puan']));
+        const ctx = document.getElementById('ferrariPilotPerformansChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: pilots,
+                datasets: [
+                    {
+                        label: 'Puan',
+                        data: puan,
+                        backgroundColor: 'rgba(255,0,0,0.7)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'En Çok Puan Alan 10 Ferrari Pilotu' }
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Puan' } }
+                }
+            }
+        });
+    }
+});
+
+// PİST PERFORMANS ANALİZİ (En Çok Kazanılan 10 Pist)
+Papa.parse('Analyse/ferrari_en_cok_kazanilan_pistler.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const pistler = data.map(row => row['name_circuit']);
+        const galibiyet = data.map(row => Number(row['Galibiyet']));
+        const ctx = document.getElementById('ferrariPistPerformansChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: pistler,
+                datasets: [
+                    {
+                        label: 'Galibiyet',
+                        data: galibiyet,
+                        backgroundColor: 'rgba(255,0,0,0.7)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'En Çok Kazanılan 10 Pist' }
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Galibiyet' } }
+                }
+            }
+        });
+    }
+});
+
+// YILLIK PERFORMANS ANALİZİ (Yıllara Göre Podyum)
+Papa.parse('Analyse/ferrari_yillik_ozet.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const years = data.map(row => row['year']);
+        const podyum = data.map(row => Number(row['Podyum']));
+        const ctx = document.getElementById('ferrariYillikPerformansChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [
+                    {
+                        label: 'Podyum',
+                        data: podyum,
+                        borderColor: 'rgba(255,0,0,1)',
+                        backgroundColor: 'rgba(255,0,0,0.1)',
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'Yıllara Göre Podyum' }
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Podyum' } }
+                }
+            }
+        });
+    }
+});
+
+// EN BAŞARILI SEZONLAR (Galibiyet ve Puan)
+Papa.parse('Analyse/ferrari_en_basarili_sezonlar.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const years = data.map(row => row['year']);
+        const galibiyet = data.map(row => Number(row['Galibiyet']));
+        const puan = data.map(row => Number(row['Puan']));
+        const ctx = document.getElementById('ferrariEnBasariliSezonlarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: years,
+                datasets: [
+                    {
+                        label: 'Galibiyet',
+                        data: galibiyet,
+                        backgroundColor: 'rgba(255,0,0,0.7)'
+                    },
+                    {
+                        label: 'Puan',
+                        data: puan,
+                        type: 'line',
+                        borderColor: 'rgba(200,0,0,1)',
+                        backgroundColor: 'rgba(200,0,0,0.1)',
+                        yAxisID: 'y1',
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                interaction: { mode: 'index', intersect: false },
+                stacked: false,
+                plugins: {
+                    legend: { display: true },
+                    title: { display: true, text: 'En Başarılı Sezonlar (Galibiyet & Puan)' }
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Galibiyet' } },
+                    y1: {
+                        beginAtZero: true,
+                        position: 'right',
+                        grid: { drawOnChartArea: false },
+                        title: { display: true, text: 'Puan' }
+                    }
+                }
+            }
+        });
+    }
+});
+
+// KARŞILAŞTIRMALI ANALİZ (En Çok Puan Alan 10 Takım)
+Papa.parse('Analyse/ferrari_karsilastirmali_analiz.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const takimlar = data.map(row => row['constructor_name']);
+        const puan = data.map(row => Number(row['Puan']));
+        const ctx = document.getElementById('ferrariKarsilastirmaliChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: takimlar,
+                datasets: [
+                    {
+                        label: 'Puan',
+                        data: puan,
+                        backgroundColor: 'rgba(255,0,0,0.7)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'En Çok Puan Alan 10 Takım' }
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Puan' } }
+                }
+            }
+        });
+    }
+});
+
+// SEZON PİLOT HEATMAP (Her pilotun sezonluk podyum sayısı - örnek heatmap)
+Papa.parse('Analyse/ferrari_sezon_pilot_ozet.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        // Yıl ve pilot bazında podyumları topluca göstermek için bir heatmap datası oluşturulabilir.
+        // Basit bir örnek: Her yıl en çok podyum yapan 5 pilotun podyum sayısı
+        const years = [...new Set(data.map(row => row['year']))];
+        const pilots = [...new Set(data.map(row => row['driver_name']))];
+        // Sadece ilk 5 pilotu alalım (en çok podyum yapanlar)
+        const pilotPodyum = {};
+        pilots.forEach(pilot => { pilotPodyum[pilot] = Array(years.length).fill(0); });
+        data.forEach(row => {
+            const yearIdx = years.indexOf(row['year']);
+            if (yearIdx !== -1) pilotPodyum[row['driver_name']][yearIdx] = Number(row['Podyum']);
+        });
+        const topPilots = pilots.slice(0, 5);
+        const datasets = topPilots.map((pilot, i) => ({
+            label: pilot,
+            data: pilotPodyum[pilot],
+            borderWidth: 2,
+            fill: false,
+            borderColor: `hsl(${i*60}, 80%, 50%)`,
+            backgroundColor: `hsl(${i*60}, 80%, 70%)`,
+            tension: 0.3
+        }));
+        const ctx = document.getElementById('ferrariSezonPilotHeatmapChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true },
+                    title: { display: true, text: 'Sezonlara Göre En Çok Podyum Yapan 5 Pilot' }
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Podyum' } }
+                }
+            }
+        });
+    }
+});
+
+// DASHBOARD (Yıllara göre toplam puan ve galibiyet - özet)
+Papa.parse('Analyse/ferrari_yillik_ozet.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const years = data.map(row => row['year']);
+        const puan = data.map(row => Number(row['Puan']));
+        const galibiyet = data.map(row => Number(row['Galibiyet']));
+        const ctx = document.getElementById('ferrariDashboardChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: years,
+                datasets: [
+                    {
+                        label: 'Puan',
+                        data: puan,
+                        backgroundColor: 'rgba(255,0,0,0.5)'
+                    },
+                    {
+                        label: 'Galibiyet',
+                        data: galibiyet,
+                        backgroundColor: 'rgba(200,0,0,0.7)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true },
+                    title: { display: true, text: 'Ferrari Dashboard: Yıllık Puan & Galibiyet' }
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Değer' } }
+                }
+            }
+        });
+    }
 }); 

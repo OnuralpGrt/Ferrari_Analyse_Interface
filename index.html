@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scuderia Ferrari</title>
+    <title>Scuderia Ferrari - Resmi Web Sitesi</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -203,7 +205,7 @@
                 <!-- Analiz 1: Genel Performans -->
                 <div class="analysis-card">
                     <div class="analysis-image">
-                        <img src="visualization/ferrari_genel_performans.png" alt="Ferrari Genel Performans Analizi" class="analysis-img">
+                        <canvas id="ferrariGenelPerformansChart" width="400" height="200"></canvas>
                     </div>
                     <div class="analysis-content">
                         <h3>Genel Performans Analizi</h3>
@@ -234,7 +236,7 @@
                 <!-- Analiz 2: Pilot Performans Analizi -->
                 <div class="analysis-card">
                     <div class="analysis-image">
-                        <img src="visualization/ferrari_pilot_performans_analizi.png" alt="Ferrari Pilot Performans Analizi" class="analysis-img">
+                        <canvas id="ferrariPilotPerformansChart" width="400" height="200"></canvas>
                     </div>
                     <div class="analysis-content">
                         <h3>Pilot Performans Analizi</h3>
@@ -265,7 +267,7 @@
                 <!-- Analiz 3: Pist Performans Analizi -->
                 <div class="analysis-card">
                     <div class="analysis-image">
-                        <img src="visualization/ferrari_pist_performans_analizi.png" alt="Ferrari Pist Performans Analizi" class="analysis-img">
+                        <canvas id="ferrariPistPerformansChart" width="400" height="200"></canvas>
                     </div>
                     <div class="analysis-content">
                         <h3>Pist Performans Analizi</h3>
@@ -296,7 +298,7 @@
                 <!-- Analiz 4: Yıllık Performans Analizi -->
                 <div class="analysis-card">
                     <div class="analysis-image">
-                        <img src="visualization/ferrari_yillik_performans_analizi.png" alt="Ferrari Yıllık Performans Analizi" class="analysis-img">
+                        <canvas id="ferrariYillikPerformansChart" width="400" height="200"></canvas>
                     </div>
                     <div class="analysis-content">
                         <h3>Yıllık Performans Analizi</h3>
@@ -327,7 +329,7 @@
                 <!-- Analiz 5: En Başarılı Sezonlar -->
                 <div class="analysis-card">
                     <div class="analysis-image">
-                        <img src="visualization/ferrari_en_basarili_sezonlar_analizi.png" alt="Ferrari En Başarılı Sezonlar Analizi" class="analysis-img">
+                        <canvas id="ferrariEnBasariliSezonlarChart" width="400" height="200"></canvas>
                     </div>
                     <div class="analysis-content">
                         <h3>En Başarılı Sezonlar</h3>
@@ -358,7 +360,7 @@
                 <!-- Analiz 6: Karşılaştırmalı Analiz -->
                 <div class="analysis-card">
                     <div class="analysis-image">
-                        <img src="visualization/ferrari_karsilastirmali_analiz.png" alt="Ferrari Karşılaştırmalı Analiz" class="analysis-img">
+                        <canvas id="ferrariKarsilastirmaliChart" width="400" height="200"></canvas>
                     </div>
                     <div class="analysis-content">
                         <h3>Karşılaştırmalı Analiz</h3>
@@ -389,7 +391,7 @@
                 <!-- Analiz 7: Sezon Pilot Heatmap -->
                 <div class="analysis-card">
                     <div class="analysis-image">
-                        <img src="visualization/ferrari_sezon_pilot_heatmap.png" alt="Ferrari Sezon Pilot Heatmap" class="analysis-img">
+                        <canvas id="ferrariSezonPilotHeatmapChart" width="400" height="200"></canvas>
                     </div>
                     <div class="analysis-content">
                         <h3>Sezon Pilot Heatmap</h3>
@@ -420,7 +422,7 @@
                 <!-- Analiz 8: Dashboard -->
                 <div class="analysis-card">
                     <div class="analysis-image">
-                        <img src="visualization/ferrari_dashboard.png" alt="Ferrari Dashboard" class="analysis-img">
+                        <canvas id="ferrariDashboardChart" width="400" height="200"></canvas>
                     </div>
                     <div class="analysis-content">
                         <h3>Ferrari Dashboard</h3>
