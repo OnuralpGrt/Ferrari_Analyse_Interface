@@ -1550,4 +1550,9 @@ body {
     .copyright-text {
         font-size: 0.65rem;
     }
+}
+
+.analysis-image canvas {
+  background: #181818 !important;
+  border-radius: 12px;
 } 
