@@ -458,16 +458,18 @@ Papa.parse('Analyse/ferrari_yillik_ozet.csv', {
                 interaction: { mode: 'index', intersect: false },
                 stacked: false,
                 plugins: {
-                    legend: { display: true },
-                    title: { display: true, text: 'Yıllara Göre Galibiyet ve Puan' }
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'Yıllara Göre Galibiyet ve Puan', color: '#fff' }
                 },
                 scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Galibiyet' } },
+                    y: { beginAtZero: true, title: { display: true, text: 'Galibiyet', color: '#fff' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
                     y1: {
                         beginAtZero: true,
                         position: 'right',
                         grid: { drawOnChartArea: false },
-                        title: { display: true, text: 'Puan' }
+                        title: { display: true, text: 'Puan', color: '#fff' },
+                        ticks: { color: '#fff' },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
                     }
                 }
             }
@@ -499,11 +501,11 @@ Papa.parse('Analyse/ferrari_en_cok_puan_pilotlar.csv', {
             options: {
                 responsive: true,
                 plugins: {
-                    legend: { display: false },
-                    title: { display: true, text: 'En Çok Puan Alan 10 Ferrari Pilotu' }
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'En Çok Puan Alan 10 Ferrari Pilotu', color: '#fff' }
                 },
                 scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Puan' } }
+                    y: { beginAtZero: true, title: { display: true, text: 'Puan' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                 }
             }
         });
@@ -534,11 +536,11 @@ Papa.parse('Analyse/ferrari_en_cok_kazanilan_pistler.csv', {
             options: {
                 responsive: true,
                 plugins: {
-                    legend: { display: false },
+                    legend: { labels: { color: '#fff' } },
                     title: { display: true, text: 'En Çok Kazanılan 10 Pist' }
                 },
                 scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Galibiyet' } }
+                    y: { beginAtZero: true, title: { display: true, text: 'Galibiyet' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                 }
             }
         });
@@ -571,11 +573,11 @@ Papa.parse('Analyse/ferrari_yillik_ozet.csv', {
             options: {
                 responsive: true,
                 plugins: {
-                    legend: { display: false },
-                    title: { display: true, text: 'Yıllara Göre Podyum' }
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'Yıllara Göre Podyum', color: '#fff' }
                 },
                 scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Podyum' } }
+                    y: { beginAtZero: true, title: { display: true, text: 'Podyum' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                 }
             }
         });
@@ -618,16 +620,18 @@ Papa.parse('Analyse/ferrari_en_basarili_sezonlar.csv', {
                 interaction: { mode: 'index', intersect: false },
                 stacked: false,
                 plugins: {
-                    legend: { display: true },
-                    title: { display: true, text: 'En Başarılı Sezonlar (Galibiyet & Puan)' }
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'En Başarılı Sezonlar (Galibiyet & Puan)', color: '#fff' }
                 },
                 scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Galibiyet' } },
+                    y: { beginAtZero: true, title: { display: true, text: 'Galibiyet' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
                     y1: {
                         beginAtZero: true,
                         position: 'right',
                         grid: { drawOnChartArea: false },
-                        title: { display: true, text: 'Puan' }
+                        title: { display: true, text: 'Puan' },
+                        ticks: { color: '#fff' },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
                     }
                 }
             }
@@ -659,11 +663,11 @@ Papa.parse('Analyse/ferrari_karsilastirmali_analiz.csv', {
             options: {
                 responsive: true,
                 plugins: {
-                    legend: { display: false },
-                    title: { display: true, text: 'En Çok Puan Alan 10 Takım' }
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'En Çok Puan Alan 10 Takım', color: '#fff' }
                 },
                 scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Puan' } }
+                    y: { beginAtZero: true, title: { display: true, text: 'Puan' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                 }
             }
         });
@@ -707,11 +711,11 @@ Papa.parse('Analyse/ferrari_sezon_pilot_ozet.csv', {
             options: {
                 responsive: true,
                 plugins: {
-                    legend: { display: true },
-                    title: { display: true, text: 'Sezonlara Göre En Çok Podyum Yapan 5 Pilot' }
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'Sezonlara Göre En Çok Podyum Yapan 5 Pilot', color: '#fff' }
                 },
                 scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Podyum' } }
+                    y: { beginAtZero: true, title: { display: true, text: 'Podyum' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                 }
             }
         });
@@ -748,11 +752,11 @@ Papa.parse('Analyse/ferrari_yillik_ozet.csv', {
             options: {
                 responsive: true,
                 plugins: {
-                    legend: { display: true },
-                    title: { display: true, text: 'Ferrari Dashboard: Yıllık Puan & Galibiyet' }
+                    legend: { labels: { color: '#fff' } },
+                    title: { display: true, text: 'Ferrari Dashboard: Yıllık Puan & Galibiyet', color: '#fff' }
                 },
                 scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Değer' } }
+                    y: { beginAtZero: true, title: { display: true, text: 'Değer' }, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                 }
             }
         });
