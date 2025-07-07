@@ -422,6 +422,19 @@ window.addEventListener('load', function() {
     }
 });
 
+// Chart.js grafiklerinde arka planı beyaz yapmak için eklenti
+Chart.register({
+    id: 'custom_canvas_background_color',
+    beforeDraw: (chart) => {
+        const ctx = chart.canvas.getContext('2d');
+        ctx.save();
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.fillStyle = '#fff'; // Arka plan rengi beyaz
+        ctx.fillRect(0, 0, chart.width, chart.height);
+        ctx.restore();
+    }
+});
+
 // GENEL PERFORMANS ANALİZİ (Yıllara Göre Galibiyet ve Puan)
 Papa.parse('Analyse/ferrari_yillik_ozet.csv', {
     download: true,
